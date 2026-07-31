@@ -8,7 +8,6 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Чат">
   
-  <!-- ТВОЯ ИКОНКА С GITHUB -->
   <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/btc949t96m-coder/saltanovcrypto/main/free-icon-phone-15047595.png">
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/btc949t96m-coder/saltanovcrypto/main/free-icon-phone-15047595.png">
   
@@ -16,8 +15,26 @@
     body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #0e1621; }
     iframe { width: 100%; height: 100%; border: none; }
   </style>
+  
+  <script>
+    // Спрашиваем имя и сохраняем на уровне GitHub (iPhone это не забудет)
+    var myName = localStorage.getItem('chat_name') || "";
+    if (!myName) {
+      myName = prompt("Как вас зовут?", "");
+      if (myName) {
+        localStorage.setItem('chat_name', myName);
+      }
+    }
+    
+    // Формируем ссылку с именем
+    var srcUrl = "https://script.google.com/macros/s/AKfycbwvoi3KqnzGOrZwrmT13XJbrZj7P77h9ayS7S_LgKkFvSabFfD9Eypf2iRcAQ0Sf1xdZg/exec";
+    if (myName) {
+      srcUrl += "?name=" + encodeURIComponent(myName);
+    }
+    
+    // Вставляем iframe
+    document.write('<iframe src="' + srcUrl + '"></iframe>');
+  </script>
 </head>
-<body>
-  <iframe src="https://script.google.com/macros/s/AKfycbwvoi3KqnzGOrZwrmT13XJbrZj7P77h9ayS7S_LgKkFvSabFfD9Eypf2iRcAQ0Sf1xdZg/exec"></iframe>
-</body>
+<body></body>
 </html>
